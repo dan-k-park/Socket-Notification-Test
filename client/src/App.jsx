@@ -11,12 +11,7 @@ const App = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const socket = io("http://localhost:5000");
-    console.log(
-      socket.on("firstEvent", (msg) => {
-        console.log(msg);
-      })
-    );
+    setSocket(io("http://localhost:5000"));
   }, []);
 
   useEffect(() => {
@@ -35,6 +30,7 @@ const App = () => {
         </>
       ) : (
         <div className="login">
+          <h2>Noti App</h2>
           <input
             type="text"
             placeholder="username"
